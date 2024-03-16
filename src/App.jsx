@@ -17,10 +17,10 @@ function App() {
             <Grid item xs={0} sm={2}>
               <SideBar />
             </Grid>
-            <Grid item xs={12} sm={8}>
+            <Grid item xs={12} sm={7}>
               <Outlet />
             </Grid>
-            <Grid item xs={0} sm={2}>
+            <Grid item xs={0} sm={3}>
               <RightBar />
             </Grid>
           </Grid>

@@ -10,9 +10,8 @@ function FeedCard() {
   const styleCard = {
     maxWidth: '70%',
   }
-
   const styleCardMedia = {
-    height: 250,
+    height: '30%',
   }
 
   return (

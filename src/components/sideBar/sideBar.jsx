@@ -1,13 +1,18 @@
 import React from 'react'
-import { Box, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
-import { useSelector } from 'react-redux'
+import { Box, List, ListItemButton, ListItemIcon, ListItemText, Drawer } from '@mui/material'
+import { useSelector, useDispatch } from 'react-redux'
+import setIsOpenSideBar from '../../store/layoutReducer'
 import PeopleIcon from '@mui/icons-material/People'
 import FeedIcon from '@mui/icons-material/Feed'
 import SettingsIcon from '@mui/icons-material/Settings'
 
 function SideBar() {
 
+//   const dispatch = useDispatch();
   const { sideBar } = useSelector((state) => state.sideBar);
+//   const clickCloseDrawer = () => {
+//     dispatch(setIsOpenSideBar());
+//   }
 
   const styleSideBarBox = {
     width: { xs: '70%', sm: '20%' },
