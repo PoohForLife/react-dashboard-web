@@ -111,6 +111,8 @@ export function palette() {
       disabled: grey[500],
     },
     background: {
+      mainGrey: '#31363F',
+      mainMint: '#76ABAE',
       transparent: 'transparent',
     },
   };

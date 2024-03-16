@@ -1,15 +1,33 @@
 import React from "react"
 import { Outlet } from "react-router-dom"
 import { useRoutes } from "react-router-dom"
+import { Grid } from "@mui/material"
 import ThemeProvider from "./theme/themeProvider"
+import Home from "./pages/home/home"
+import NavigationBar from "./components/navigationBar/navigationBar"
+import SideBar from "./components/sideBar/sideBar"
+import RightBar from "./components/rightBar/rightBar"
 
 function App() {
   const elements = useRoutes([{
       element: (
-        <Outlet />
+        <>
+          <NavigationBar />
+          <Grid container>
+            <Grid item xs={0} sm={2}>
+              <SideBar />
+            </Grid>
+            <Grid item xs={12} sm={8}>
+              <Outlet />
+            </Grid>
+            <Grid item xs={0} sm={2}>
+              <RightBar />
+            </Grid>
+          </Grid>
+        </>
       ),
       children: [
-        { path: '/', element: <h1>Home</h1> },
+        { path: '/', element: <Home /> },
       ]
     },
     { path: '/login', element: <h1>Login</h1> },
