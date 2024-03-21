@@ -12,7 +12,18 @@ function ThemeProvider({ children }) {
         shape: { borderRadius: 8 },
     }), []);
     
-    const theme = createTheme(memorizedValue);
+    const theme = createTheme({
+        ...memorizedValue,
+        components: {
+            MuiCssBaseline: {
+                styleOverrides: {
+                    body: {
+                        backgroundColor: memorizedValue.palette.background.facebookPageGrey,
+                    },
+                },
+            },
+        },
+    });
 
     return (
         <MuiThemeProvider theme={theme}>

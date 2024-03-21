@@ -114,6 +114,10 @@ export function palette() {
       mainGrey: '#31363F',
       mainMint: '#76ABAE',
       transparent: 'transparent',
+      facebookGrey: '#E5E6EC',
+      facebookPageGrey: '#F0F2F5',
+      facebookSearchGrey: '#6f7074',
+      facebookSearchLightGrey: '#F1F2F5',
     },
   };
 }

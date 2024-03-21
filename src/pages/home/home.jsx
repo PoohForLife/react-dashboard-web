@@ -9,6 +9,7 @@ function Home() {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    p: 2,
   }
 
   return (

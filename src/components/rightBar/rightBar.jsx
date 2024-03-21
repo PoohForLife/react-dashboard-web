@@ -23,10 +23,7 @@ function RightBar() {
   ]
 
   const styleRightBarBox = {
-    width: '20%',
-    height: 1,
     display: { xs: 'none', sm: 'flex' },
-    backgroundColor: 'white',
     zIndex: 1,
     position: 'fixed',
     p: 2
@@ -41,7 +38,6 @@ function RightBar() {
   const styleList = {
     width: '100%', 
     maxWidth: 360, 
-    bgcolor: 'background.paper'
   }
   const secondaryText = (
     <>

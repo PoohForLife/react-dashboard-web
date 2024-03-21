@@ -5,23 +5,25 @@ import setIsOpenSideBar from '../../store/layoutReducer'
 import PeopleIcon from '@mui/icons-material/People'
 import FeedIcon from '@mui/icons-material/Feed'
 import SettingsIcon from '@mui/icons-material/Settings'
+import { useResponsive } from '../../utils/config-responsive'
 
 function SideBar() {
 
 //   const dispatch = useDispatch();
+  const isDownSM = useResponsive('down', 'sm');
   const { sideBar } = useSelector((state) => state.sideBar);
 //   const clickCloseDrawer = () => {
 //     dispatch(setIsOpenSideBar());
 //   }
 
   const styleSideBarBox = {
-    width: { xs: '70%', sm: '20%' },
+    width: isDownSM ? '70%' : '20%',
     height: 1,
     zIndex: 1,
-    transform: { xs: sideBar.isOpen ? 'translateX(0)' : 'translateX(-100%)', sm: 'translateX(0)' },
+    transform: isDownSM ? (sideBar.isOpen ? 'translateX(0)' : 'translateX(-100%)') : 'translateX(0)',
     transition: '0.3s',
     position: 'fixed',
-    backgroundColor: 'white',
+    backgroundColor: isDownSM ? 'white' : 'background.transparent',
   }
 
   return (

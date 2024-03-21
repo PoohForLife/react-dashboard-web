@@ -1,4 +1,4 @@
 body {
   margin: 0;
-  overscroll-behavior: none;
+  overscroll-behavior-x: none;
 }
