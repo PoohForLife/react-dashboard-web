@@ -4,19 +4,19 @@ import { useDispatch } from 'react-redux'
 import { AppBar, Toolbar, Badge, Stack, IconButton, Avatar, Box, InputBase, Tabs, Tab, Tooltip, Grid } from '@mui/material'
 import { setIsOpenSideBar } from '../../store/layoutReducer'
 import MenuIcon from '@mui/icons-material/Menu'
-import NotificationsIcon from '@mui/icons-material/Notifications'
-import MailIcon from '@mui/icons-material/Mail'
 import SearchIcon from '@mui/icons-material/Search'
-import WindowIcon from '@mui/icons-material/Window'
-import HomeIcon from '@mui/icons-material/Home'
+import CottageOutlinedIcon from '@mui/icons-material/CottageOutlined'
 import PersonalVideoIcon from '@mui/icons-material/PersonalVideo'
-import StoreIcon from '@mui/icons-material/Store'
-import GroupsIcon from '@mui/icons-material/Groups'
-import SportsEsportsIcon from '@mui/icons-material/SportsEsports'
+import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined'
+import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined'
+import SportsEsportsOutlinedIcon from '@mui/icons-material/SportsEsportsOutlined'
 import ic_logo_facebook from '../../assets/ic_logo_facebook.png'
-import ic_profile_picture from '../../assets/ic_profile_picture.jpeg'
-import { APP_BAR } from '../../utils/config-layout'
 import { useResponsive } from '../../utils/config-responsive'
+import AccountPopover from '../accountPopover/accountPopover'
+import NotiPopover from '../notiPopover/notiPopover'
+import ChatPopover from '../chatPopover/chatPopover'
+import MenuPopover from '../menuPopover/menuPopover'
+import { APP_BAR } from '../../utils/config-layout'
 
 function NavigationBar() {
   
@@ -61,44 +61,35 @@ function NavigationBar() {
     alignSelf: 'center',
   }
   const styleLogoImage = {
-    height: 40,
-    width: 40,
+    height: APP_BAR.ICON_BUTTON.HEIGHT,
+    width: APP_BAR.ICON_BUTTON.WIDTH,
     display: isDownSM ? 'none' : 'flex',
   }
   const styleSideMenuForXS = {
-    height: 40,
-    width: 40,
-    color: 'black',
+    height: APP_BAR.ICON_BUTTON.HEIGHT,
+    width: APP_BAR.ICON_BUTTON.WIDTH,
+    color: APP_BAR.ICON_BUTTON.COLOR,
     display: isDownSM ? 'block' : 'none',
   }
-  const styleMenuBox = {
-    height: 40,
-    width: 40,
-    backgroundColor: 'background.facebookGrey',
-  }
   const styleMenuIcon = {
-    height: 24,
-    width: 24,
-    alignSelf: 'center',
-    color: 'black',
+    height: APP_BAR.ICON_IMAGE.HEIGHT,
+    width: APP_BAR.ICON_IMAGE.WIDTH,
+    alignSelf: APP_BAR.ICON_IMAGE.ALIGN_SELF,
+    color: APP_BAR.ICON_IMAGE.COLOR,
   }
-  const styleProfileIcon = {
-    height: 40,
-    width: 40,
-    alignSelf: 'center',
-  }
+  
   const styleSearchBox = {
-    height: 40,
-    width: isDownSM ? 40 : 250,
+    height: APP_BAR.ICON_BUTTON.HEIGHT,
+    width: isDownSM ? APP_BAR.ICON_BUTTON.WIDTH : 250,
+    alignSelf: APP_BAR.ICON_BUTTON.ALIGN_SELF,
     borderRadius: '999px',
     backgroundColor: 'background.facebookSearchLightGrey',
-    alignSelf: 'center',
     px: 1,
   }
   const styleSearchIcon = {
-    height: 24,
-    width: 24,
-    alignSelf: 'center',
+    height: APP_BAR.ICON_IMAGE.HEIGHT,
+    width: APP_BAR.ICON_IMAGE.WIDTH,
+    alignSelf: APP_BAR.ICON_IMAGE.ALIGN_SELF,
     color: 'background.facebookSearchGrey',
   }
   const styleSearchTextField = {
@@ -150,43 +141,29 @@ function NavigationBar() {
           <Grid item xs={6} sx={styleGridMiddle}>
             <Tabs sx={styleTabs} value={value} onChange={(event, value) => clickTab(value)}>
               <Tooltip title='Home' placement='bottom'>
-                <Tab icon={<HomeIcon />} />    
+                <Tab icon={<CottageOutlinedIcon />} />    
               </Tooltip>
               <Tooltip title='Video' placement='bottom'>
                 <Tab icon={<PersonalVideoIcon />} />
               </Tooltip>
               <Tooltip title='Marketplace' placement='bottom'>
-                <Tab icon={<StoreIcon />} />
+                <Tab icon={<StorefrontOutlinedIcon />} />
               </Tooltip>
               <Tooltip title='Groups' placement='bottom'>
-                <Tab icon={<GroupsIcon />} />
+                <Tab icon={<GroupsOutlinedIcon />} />
               </Tooltip>
               <Tooltip title='Gaming' placement='bottom'>
-                <Tab icon={<SportsEsportsIcon />} />
+                <Tab icon={<SportsEsportsOutlinedIcon />} />
               </Tooltip>
             </Tabs>
           </Grid>
 
           <Grid item xs={3} sx={styleGridRight}>
             <Stack direction='row' spacing={1}>
-              <IconButton sx={styleMenuBox}>
-                <Badge badgeContent={0} color='error'>
-                  <WindowIcon sx={styleMenuIcon} />
-                </Badge>
-              </IconButton>
-              <IconButton sx={styleMenuBox}>
-                <Badge badgeContent={2} color='error'>
-                  <MailIcon sx={styleMenuIcon} />
-                </Badge>
-              </IconButton>
-              <IconButton sx={styleMenuBox}>
-                <Badge badgeContent={4} color='error'>
-                  <NotificationsIcon sx={styleMenuIcon} />
-                </Badge>
-              </IconButton>
-              <IconButton sx={styleMenuBox}>
-                <Avatar sx={styleProfileIcon} alt='account_image' src={ic_profile_picture} />
-              </IconButton>
+              <MenuPopover />
+              <ChatPopover />
+              <NotiPopover />
+              <AccountPopover />
             </Stack>
           </Grid>
         </Grid>
