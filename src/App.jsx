@@ -1,48 +1,57 @@
-import React from "react"
-import { Outlet } from "react-router-dom"
-import { useRoutes } from "react-router-dom"
-import { Grid, Box } from "@mui/material"
-import ThemeProvider from "./theme/themeProvider"
-import Home from "./pages/home/home"
-import NavigationBar from "./components/navigationBar/navigationBar"
-import SideBar from "./components/sideBar/sideBar"
-import RightBar from "./components/rightBar/rightBar"
-import { APP_BAR } from "./utils/config-layout"
+import React from 'react'
+import { Box } from '@mui/material'
+import { Outlet, useRoutes } from 'react-router-dom'
+import { useResponsive } from './utils/config-responsive'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+import ThemeProvider from './theme/themeProvider'
+import { SIDE_BAR, APP_BAR } from './utils/config-layout'
+import Explore from './pages/explore/explore'
+import Hotel from './pages/hotel/hotel'
+import HotelBooking from './pages/hotelBooking/hotelBooking'
+import HotelDetail from './pages/hotelDetail/hotelDetail'
+import Payment from './pages/payment/payment'
+import PaymentDone from './pages/paymentDone/paymentDone'
+import SideBar from './components/sideBar/sideBar'
+import NavigationBar from './components/navigationBar/navigationBar'
+import NotFound from './pages/notFound/notFound'
 
 function App() {
-  const styleBody = {
-    mt: APP_BAR.HEIGHT,
+
+  const isUpMD = useResponsive('up', 'md');
+  const styleOutlet = {
+    pl: isUpMD ? SIDE_BAR.WIDTH : 0,
+    pt: isUpMD ? 0 : APP_BAR.HEIGHT,
   }
   const elements = useRoutes([{
-      element: (
-        <Box>
-          <NavigationBar />
-          <Grid container sx={styleBody}>
-            <Grid item xs={0} sm={3}>
-              <SideBar />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Outlet />
-            </Grid>
-            <Grid item xs={0} sm={3}>
-              <RightBar />
-            </Grid>
-          </Grid>
+    element: (
+      <Box>
+        <NavigationBar />
+        <SideBar /> 
+        <Box sx={styleOutlet} >
+          <Outlet />
         </Box>
-      ),
-      children: [
-        { path: '/', element: <Home /> },
-      ]
-    },
-    { path: '/login', element: <h1>Login</h1> },
-    { path: '/register', element: <h1>Register</h1> },
-    { path: '*', element: <h1>404 Not Found</h1> },
-  ])
+      </Box>
+    ),
+    children: [
+      { path: '/', element: <Explore />},
+      { path: '/explore', element: <Explore />},
+      { path: '/explore/hotel', element: <Hotel />},
+      { path: '/explore/hotelDetail', element: <HotelDetail />},
+      { path: '/explore/hotelBooking', element: <HotelBooking />},
+      { path: '/explore/payment', element: <Payment />}, 
+    ]
+  },
+  { path: '/explore/paymentDone', element: <PaymentDone />}, 
+  { path: '*', element: <NotFound /> }
+])
   return (
-    <ThemeProvider>
-      {elements}
-    </ThemeProvider>
-  );
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <ThemeProvider>
+        {elements}
+      </ThemeProvider>
+    </LocalizationProvider>
+  )
 }
 
 export default App

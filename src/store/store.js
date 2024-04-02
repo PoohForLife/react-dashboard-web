@@ -1,10 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "./userReducer";
-import layoutReducer from "./layoutReducer";
+import { configureStore } from "@reduxjs/toolkit"
+import layoutReducer from "./layoutReducer"
+import bookingReducer from "./bookingReducer"
 
 export default configureStore({
     reducer: {
-        user: userReducer,
         sideBar: layoutReducer,
+        hotelBooking: bookingReducer,
     },
 });

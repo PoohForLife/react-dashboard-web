@@ -1,16 +1,20 @@
+export const SIDE_BAR = {
+    WIDTH: '120px',
+}
+
 export const APP_BAR = {
     HEIGHT: '60px',
-    ICON_BUTTON: {
-        HEIGHT: '40px',
-        WIDTH: '40px',
-        ALIGN_SELF: 'center',
-        COLOR: 'black',
-        BACKGROUND_COLOR: 'background.facebookGrey',
+}
+
+export const BODY = {
+    PADDING: '16px',
+}
+
+export const COMPONENT = {
+    INPUTBASE: {
+        HEIGHT: '60px',
     },
-    ICON_IMAGE: {
-        HEIGHT: '24px',
-        WIDTH: '24px',
-        ALIGN_SELF: 'center',
-        COLOR: 'black',
-    },
-};
+    BUTTON: {
+        HEIGHT: '60px',
+    }
+}
