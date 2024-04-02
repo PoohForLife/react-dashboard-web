@@ -71,13 +71,13 @@ function AccountPopover() {
     backgroundColor: 'background.facebookGrey',
     borderRadius: 1,
   }
-
+  
   return (
     <Box>
       <IconButton onClick={(e) => clickOpenAccount(e)} sx={styleIconButton}>
         <Avatar alt='account_image' src={ic_profile_picture} />
       </IconButton>
-
+      
       <Popover open={Boolean(open)} onClose={() => clickCloseAccount()} anchorEl={open} anchorOrigin={popoverAnchorOrigin} transformOrigin={popoverTransformOrigin}>
         <Box sx={styleAccountBox}>
           <Paper elevation={3}>

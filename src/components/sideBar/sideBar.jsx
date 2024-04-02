@@ -12,7 +12,7 @@ function SideBar() {
 
   const dispatch = useDispatch();
   const isDownSM = useResponsive('down', 'sm');
-  const isUpXS = useResponsive('up', 'sm');
+  const isUpSM = useResponsive('up', 'sm');
   const { sideBar } = useSelector((state) => state.sideBar);
   const clickCloseDrawer = () => {
     dispatch(setIsOpenSideBar());
@@ -33,7 +33,7 @@ function SideBar() {
   }
 
   return (
-    <Drawer variant={isUpXS ? 'permanent' : 'temporary'} open={sideBar.isOpen} onClose={() => clickCloseDrawer()} sx={styleDrawer}>
+    <Drawer variant={isUpSM ? 'permanent' : 'temporary'} open={sideBar.isOpen} onClose={() => clickCloseDrawer()} sx={styleDrawer}>
       <List sx={styleList}>
         <ListItemButton component='a' href='#'>
             <ListItemIcon>
