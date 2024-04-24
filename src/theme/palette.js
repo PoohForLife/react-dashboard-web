@@ -113,16 +113,13 @@ export function palette() {
       primaryBlue: '#2D3DDF',
       sideBar: 'white',
     },
-    background: {
-      primaryBlue: '#2D3DDF',
-      secondaryBlue: '#606CE7',
-      thirdBlue: '#F4F7FF',
-      fourthBlue: '#B7BCF3',
-      primaryGrey: '#A5A6AA',
-      primaryRed: '#FF6969',
-      inputFormGrey: '#EBEDFF',
-      alphaWhite: 'rgba(255, 255, 255, 0.5)',
-      transparent: 'transparent',
+    colors: {
+      primaryWhite: '#FAFAFA',
+      primaryBlue: '#0077C0',
+      secondaryBlue: '#C7EEFF',
+      primaryDark: '#1D242B',
+      secondaryDark: '#3A4750',
+      primaryLightGrey: '#E0E0E0',
     },
   };
 }

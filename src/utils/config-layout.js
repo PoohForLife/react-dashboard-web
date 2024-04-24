@@ -1,5 +1,8 @@
 export const SIDE_BAR = {
-    WIDTH: '120px',
+    WIDTH: '100%',
+    HEIGHT: '25%',
+    BORDER_RAIDUS: '20px',
+
 }
 
 export const APP_BAR = {

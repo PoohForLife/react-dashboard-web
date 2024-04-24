@@ -18,7 +18,7 @@ function ThemeProvider({ children }) {
             MuiCssBaseline: {
                 styleOverrides: {
                     body: {
-                        backgroundColor: memorizedValue.palette.background.facebookPageGrey,
+                        backgroundColor: memorizedValue.palette.colors.facebookPageGrey,
                     },
                 },
             },

@@ -1,16 +1,10 @@
 import React from 'react'
 import { Box, Button, Stack } from '@mui/material'
 import { COMPONENT } from '../../utils/config-layout'
-import { useNavigate } from 'react-router'
 import ic_error_404 from '../../assets/ic_error_404.svg'
 
 function NotFound() {
-    const navigate = useNavigate();
 
-    const clickBackToHome = () => {
-      navigate('/explore');
-    }
-  
     const styleMainBox = { 
       height: '100vh', 
       width: '100%',
@@ -27,18 +21,18 @@ function NotFound() {
     }
     const styleButton = {
       color: 'white',
-      backgroundColor: 'background.primaryBlue',
+      backgroundColor: 'colors.primaryBlue',
       height: COMPONENT.BUTTON.HEIGHT,
       width: '30%',
       '&:hover': {
-          backgroundColor: 'background.secondaryBlue',
+          backgroundColor: 'colors.secondaryBlue',
       }
     }
   
     return (
       <Stack sx={styleMainBox} spacing={4}>
         <Box component='img' src={ic_error_404} alt='payment_done' sx={styleImage} />
-        <Button onClick={() => clickBackToHome()} sx={styleButton}>Back to Home</Button>
+        <Button sx={styleButton}>Back to Home</Button>
       </Stack>
     )
 }

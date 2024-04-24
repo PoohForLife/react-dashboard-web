@@ -1,10 +1,10 @@
 import React from 'react'
-import { AppBar, IconButton, Toolbar, Box } from '@mui/material'
+import { AppBar, IconButton, Toolbar, Box, Stack, Typography, colors } from '@mui/material'
 import { useResponsive } from '../../utils/config-responsive'
 import { useDispatch } from 'react-redux'
 import { setIsOpenSideBar } from '../../store/layoutReducer'
 import { APP_BAR } from '../../utils/config-layout'
-import ic_app_logo from '../../assets/ic_app_logo.svg'
+import MenuIcon from '@mui/icons-material/Menu'
 
 function NavigationBar() { 
 
@@ -15,37 +15,57 @@ function NavigationBar() {
     dispatch(setIsOpenSideBar());
   }
 
-  const styleAppBar = {
-    display: isUpMD ? 'none' : 'block',
-    height: APP_BAR.HEIGHT,
-    backgroundColor: 'background.primaryBlue',
-    borderBottomRightRadius: '30px',
-    borderBottomLeftRadius: '30px',
-    zIndex: 2,
-  }
-  const styleToolbar = {
-    display: 'flex',
-    height: 1,
-    justifyContent: 'space-between',
-  }
-  const styleSideMenuForXS = {
-    height: '30px',
-    width: '30px',
-    color: 'white',
-  }
-  const styleMenuIcon = {
-    height: '24px',
-    width: '24px',
-    color: 'white',
-    alignSelf: 'center',
+  const styles = {
+    viewAppBar: {
+      display: 'block',
+      height: APP_BAR.HEIGHT,
+      backgroundColor: 'colors.primaryWhite',
+      zIndex: 2,
+    },
+    viewToolbar: {
+      display: 'flex',
+      height: 1,
+      justifyContent: 'space-between',
+    },
+    viewLogo: {
+      height: '30px',
+      width: '120px',
+      color: 'white',
+      alignSelf: 'center',
+    },
+    viewSubMenu: {
+      display: isUpMD ? 'flex' : 'none',
+      flexDireaction: 'row',
+    },
+    viewMoreIcon: {
+      display: isUpMD ? 'none' : 'flex',
+    },
+    textMenu: {
+      color: 'colors.primaryLightGrey',
+      alignSelf: 'center',
+      draggable: false,
+      cursor: 'pointer',
+      '&:hover': {
+        color: 'colors.primaryBlue',
+      },
+    }
   }
 
+
   return (
-    <AppBar position='fixed' sx={styleAppBar}>
-        <Toolbar sx={styleToolbar}>
-            <IconButton sx={styleSideMenuForXS} onClick={() => clickSideBarIcon()}>
-                <Box component='img' alt='logo_image' src={ic_app_logo} sx={styleMenuIcon} draggable={false} />
-            </IconButton>
+    <AppBar position='fixed' sx={styles.viewAppBar}>
+        <Toolbar sx={styles.viewToolbar}>
+          <Box component='img' alt='logo_image' src='https://via.placeholder.com/100' sx={styles.viewLogo} draggable={false} />
+          <Stack direction='row' spacing={2} sx={styles.viewSubMenu}>
+            <Typography variant='subtitle2' sx={styles.textMenu}>Home</Typography>
+            <Typography variant='subtitle2' sx={styles.textMenu}>Products</Typography>
+            <Typography variant='subtitle2' sx={styles.textMenu}>Gallery</Typography>
+            <Typography variant='subtitle2' sx={styles.textMenu}>Reviews</Typography>
+            <Typography variant='subtitle2' sx={styles.textMenu}>Contact Us</Typography>
+          </Stack>
+          <IconButton onClick={() => clickSideBarIcon()} sx={styles.viewMoreIcon}>
+            <MenuIcon />
+          </IconButton>
         </Toolbar>
     </AppBar>
   )
