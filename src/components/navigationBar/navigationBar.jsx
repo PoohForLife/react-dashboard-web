@@ -19,7 +19,7 @@ function NavigationBar() {
     viewAppBar: {
       display: 'block',
       height: APP_BAR.HEIGHT,
-      backgroundColor: 'colors.primaryWhite',
+      backgroundColor: 'colors.secondaryTheme',
       zIndex: 2,
     },
     viewToolbar: {
@@ -41,12 +41,12 @@ function NavigationBar() {
       display: isUpMD ? 'none' : 'flex',
     },
     textMenu: {
-      color: 'colors.primaryLightGrey',
+      color: 'colors.menuText',
       alignSelf: 'center',
       draggable: false,
       cursor: 'pointer',
       '&:hover': {
-        color: 'colors.primaryBlue',
+        color: 'colors.primaryTheme',
       },
     }
   }

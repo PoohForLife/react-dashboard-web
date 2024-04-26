@@ -4,7 +4,7 @@ import { SIDE_BAR } from '../../utils/config-layout'
 import { useSelector, useDispatch } from 'react-redux'
 import { useResponsive } from '../../utils/config-responsive'
 import { setIsOpenSideBar } from '../../store/layoutReducer'
-import MenuIcon from '@mui/icons-material/Menu'
+import CloseIcon from '@mui/icons-material/Close'
 
 function SideBar() {
 
@@ -24,7 +24,7 @@ function SideBar() {
       '& .MuiDrawer-paper': {
           zIndex: 0,
           width: SIDE_BAR.WIDTH,
-          backgroundColor: 'colors.primaryBlue',
+          backgroundColor: 'colors.primaryTheme',
           borderBottomLeftRadius: SIDE_BAR.BORDER_RAIDUS,
           borderBottomRightRadius: SIDE_BAR.BORDER_RAIDUS,
       }
@@ -56,19 +56,29 @@ function SideBar() {
       alignItems: 'center',
     },
     textMenu: {
-      color: 'colors.primaryLightGrey',
+      color: 'colors.menuText',
       alignSelf: 'center',
       cursor: 'pointer',
       draggable: false,
+    },
+    viewMoreIcon: {
+      display: 'flex',
+      alignSelf: 'flex-end',
+      pr: '16px',
+    },
+    viewCloseIcon: {
+      color: 'colors.menuText',
     }
   };
 
   return (
     <Drawer variant={'temporary'} open={sideBar.isOpen} anchor='top' onClose={() => clickCloseDrawer()} sx={styles.viewDrawer}>
         <Stack spacing={1} sx={styles.viewContent}>
-          <IconButton onClick={() => clickCloseDrawer()}>
-            <MenuIcon />
-          </IconButton>
+          <Box sx={styles.viewMoreIcon}>
+            <IconButton onClick={() => clickCloseDrawer()}>
+              <CloseIcon sx={styles.viewCloseIcon} />
+            </IconButton>
+          </Box>
           <ListItemButton sx={styles.viewMenu}>
               <Typography className='menuItem' variant='caption' sx={styles.textMenu}>Home</Typography>
           </ListItemButton>

@@ -10,7 +10,7 @@ export const APP_BAR = {
 }
 
 export const BODY = {
-    PADDING: '16px',
+    PADDING: {xs: 2, sm: 4, md: 6, lg: 8, xl: 10},
 }
 
 export const COMPONENT = {

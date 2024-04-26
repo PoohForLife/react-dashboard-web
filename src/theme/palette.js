@@ -105,21 +105,12 @@ export function palette() {
   return {
     ...base,
     mode: 'light',
-    text: {
-      primary: grey[800],
-      secondary: grey[600],
-      disabled: grey[500],
-      placeholder: '#A5A6AA',
-      primaryBlue: '#2D3DDF',
-      sideBar: 'white',
-    },
     colors: {
-      primaryWhite: '#FAFAFA',
-      primaryBlue: '#0077C0',
-      secondaryBlue: '#C7EEFF',
-      primaryDark: '#1D242B',
-      secondaryDark: '#3A4750',
-      primaryLightGrey: '#E0E0E0',
+      primaryTheme: '#0077C0',
+      secondaryTheme: '#FAFAFA',
+      thirdTheme: '#C7EEFF',
+
+      menuText: '#E0E0E0',
     },
   };
 }

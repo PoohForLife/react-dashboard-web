@@ -9,6 +9,7 @@ import { SIDE_BAR, APP_BAR } from './utils/config-layout'
 import SideBar from './components/sideBar/sideBar'
 import NavigationBar from './components/navigationBar/navigationBar'
 import NotFound from './pages/notFound/notFound'
+import MainPage from './pages/mainPage/mainPage'
 
 function App() {
 
@@ -30,7 +31,7 @@ function App() {
       </Box>
     ),
     children: [
-      { path: '/', element: <p>Home</p>},
+      { path: '/', element: <MainPage />},
     ]
   },
   { path: '*', element: <NotFound /> }

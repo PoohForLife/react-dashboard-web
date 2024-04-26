@@ -21,11 +21,11 @@ function NotFound() {
     }
     const styleButton = {
       color: 'white',
-      backgroundColor: 'colors.primaryBlue',
+      backgroundColor: 'colors.primaryTheme',
       height: COMPONENT.BUTTON.HEIGHT,
       width: '30%',
       '&:hover': {
-          backgroundColor: 'colors.secondaryBlue',
+          backgroundColor: 'colors.thirdTheme',
       }
     }
   
