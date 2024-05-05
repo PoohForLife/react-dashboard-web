@@ -111,6 +111,7 @@ export function palette() {
       thirdTheme: '#C7EEFF',
 
       menuText: '#E0E0E0',
+      titleText: '#000000',
     },
   };
 }
