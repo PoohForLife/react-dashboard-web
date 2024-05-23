@@ -1,28 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TinderCard from 'react-tinder-card';
 import { Box, Typography } from '@mui/material'
 import { useResponsive } from '../../utils/config-responsive'
 import { useDispatch } from 'react-redux'
-import { setFavItem, addFavItem } from '../../store/favReducer'
+import { addFavItem } from '../../store/favReducer'
 
-const SwipeCard = ({ name, url, index, didSwipeAllItems }) => {
+const SwipeCard = ({ item, index, didSwipeAllItems }) => {
 
     const dispatch = useDispatch();
     const isUpSM = useResponsive('up', 'sm');
-    const [swipedRight, setSwipedRight] = useState([]);
     const percentHeight = isUpSM ? '50vh' : '40vh';
-    
+
     const onSwipe = (direction) => {
         console.log('You swiped: ' + direction);
         if (direction === 'right') {
-            setSwipedRight(prev => [...prev, name]);
-            dispatch(setFavItem(swipedRight));
+            dispatch(addFavItem(item));
         }
     };
 
     const onCardLeftScreen = (myIdentifier) => {
         if (index === 0) {
-            didSwipeAllItems();
+            didSwipeAllItems();   
         }
     };
 
@@ -57,9 +55,9 @@ const SwipeCard = ({ name, url, index, didSwipeAllItems }) => {
     }
   
     return (
-        <TinderCard sx={styles.viewTinderCard} onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen(name)} preventSwipe={['up', 'down']} >
-            <Box sx={{ ...styles.viewCard, backgroundImage: `url(${url})` }}>
-                <Typography variant='h6' sx={styles.textTitle}>{name}</Typography>
+        <TinderCard sx={styles.viewTinderCard} onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen(item.name)} preventSwipe={['up', 'down']} >
+            <Box sx={{ ...styles.viewCard, backgroundImage: `url(${item.url})` }}>
+                <Typography variant='h6' sx={styles.textTitle}>{item.name}</Typography>
             </Box>
         </TinderCard>
     );

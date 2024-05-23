@@ -1,36 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    favItem: [
-        {
-            name: '',
-            url: '',
-        },
-    ],
+    favItem: [],
 }
 
 const favReducer = createSlice({
     name: 'favItem',
     initialState,
     reducers: {
-        setFavItem: (state, action) => {
-            state.favItem = action.payload;
-        },
         addFavItem: (state, action) => {
-            state.favItem.push({
-                name: '',
-                url: '',
-            });
-            console.log(state.favItem);
+            state.favItem.push(action.payload);
         },
-        getFavItem: (state, action) => {
-            return state.favItem;
-        }
+        resetFavItem: (state) => {
+            state.favItem = [];
+        },
     }
 })
 
-export const { setFavItem } = favReducer.actions
+export const { resetFavItem } = favReducer.actions
 export const { addFavItem } = favReducer.actions
-export const { getFavItem } = favReducer.actions
 
 export default favReducer.reducer
