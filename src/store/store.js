@@ -1,10 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit"
-import layoutReducer from "./layoutReducer"
-import bookingReducer from "./bookingReducer"
+import favReducer from "./favReducer"
 
 export default configureStore({
     reducer: {
-        sideBar: layoutReducer,
-        hotelBooking: bookingReducer,
+        favItem: favReducer,
     },
 });
